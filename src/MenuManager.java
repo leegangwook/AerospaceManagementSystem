@@ -18,22 +18,21 @@ public class MenuManager {
 			num = input.nextInt();
 			
 			switch(num) {
-			case 1:
-				System.out.print("Aircraft Name:");
-				String AircraftName = input.next();
-				System.out.print("Aircraft Type:");
-				String AircraftType = input.next();
-				System.out.print("Aircraft Manufacturer:");
-				String AircraftManufacturer = input.next();
-				System.out.print("Aircraft Cost:");
-				String AircraftCost = input.next();
-				break;
-			case 2:
-			case 3:
-			case 4:
-				System.out.print("Aircraft Name:");
-				String AircraftName2 = input.next();
-				
+				case 1:
+					System.out.print("Aircraft Name:");
+					String AircraftName1 = input.next();
+					System.out.print("Aircraft Type:");
+					String AircraftType = input.next();
+					System.out.print("Aircraft Manufacturer:");
+					String AircraftManufacturer = input.next();
+					System.out.print("Aircraft Cost:");
+					String AircraftCost = input.next();
+					break;
+				case 2:
+				case 3:
+				case 4:
+					System.out.print("Aircraft Name:");
+					String AircraftName2 = input.next();	
 			}
 		}
 	}
