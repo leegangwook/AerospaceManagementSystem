@@ -2,11 +2,9 @@ package aircraft;
 
 import java.util.Scanner;
 
-public class JetAircraft extends Aircraft implements AircraftInput{
+public class AirlinerAircraft extends Aircraft implements AircraftInput{
 	
-	protected String foreignManufacturer;
-	
-	public JetAircraft(AircraftKind kind){
+	public AirlinerAircraft(AircraftKind kind){
 		super(kind);
 	}
 	
@@ -36,13 +34,14 @@ public class JetAircraft extends Aircraft implements AircraftInput{
 				this.setManufacturer(Manufacturer);
 				break;
 			}
-			
+			else {
+
+			}
 		}
-		
 		System.out.print("Aircraft Cost:");
 		String Cost = input.next();
 		this.setCost(Cost);
-	}
+	}	
 	
 	public void printInfo() {
 		String Skind = "none";

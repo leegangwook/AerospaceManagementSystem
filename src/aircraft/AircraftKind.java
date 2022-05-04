@@ -2,7 +2,7 @@ package aircraft;
 
 public enum AircraftKind {
 	Airliner,
-	jet,
+	Jet,
 	Helicopter,
 	UAV
 }

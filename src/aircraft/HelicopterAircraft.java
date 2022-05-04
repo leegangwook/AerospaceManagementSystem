@@ -2,11 +2,11 @@ package aircraft;
 
 import java.util.Scanner;
 
-public class JetAircraft extends Aircraft implements AircraftInput{
+public class HelicopterAircraft extends Aircraft implements AircraftInput{
 	
 	protected String foreignManufacturer;
 	
-	public JetAircraft(AircraftKind kind){
+	public HelicopterAircraft(AircraftKind kind){
 		super(kind);
 	}
 	
