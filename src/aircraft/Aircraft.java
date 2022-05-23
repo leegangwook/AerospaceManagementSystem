@@ -1,8 +1,15 @@
 package aircraft;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Aircraft {
+import exception.ManufacturerFormatException;
+
+public abstract class Aircraft implements AircraftInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7825438161735492413L;
 	protected AircraftKind kind = AircraftKind.Airliner;
 	protected String Name;
 	protected String Type;
@@ -65,7 +72,10 @@ public abstract class Aircraft {
 		return Manufacturer;
 	}
 	
-	public void setManufacturer(String manufacturer) {
+	public void setManufacturer(String manufacturer) throws ManufacturerFormatException{
+		if (manufacturer.contains("@")) {
+			throw new ManufacturerFormatException();
+		}
 		Manufacturer = manufacturer;
 	}
 	
@@ -77,5 +87,70 @@ public abstract class Aircraft {
 		Cost = cost;
 	}
 	
-	public abstract void printInfo();	
+	public abstract void printInfo();
+	
+	public void setAircraftName(Scanner input) {
+		System.out.print("Aircraft Name:");
+		String Name = input.next();
+		this.setName(Name);
+	}
+	
+	public void setAircraftType(Scanner input) {
+		System.out.print("Aircraft Type:");
+		String Type = input.next();
+		this.setType(Type);
+	}
+	
+	public void setAircraftManufacturer(Scanner input) {
+		String Manufacturer = "@";
+		while (Manufacturer.contains("@")) {
+			System.out.print("Aircraft Manufacturer:");
+			Manufacturer = input.next();
+			try {
+				this.setManufacturer(Manufacturer);
+			} 
+			catch (ManufacturerFormatException e) {
+				System.out.println("Don't push @");
+			}
+		}
+	}
+	public void setAircraftforeignManufacturer(Scanner input) {
+		String Manufacturer = "@";
+		while (Manufacturer.contains("@")) {
+			System.out.print("Aircraft foreignManufacturer:");
+			Manufacturer = input.next();
+			try {
+				this.setManufacturer(Manufacturer);
+			} 
+			catch (ManufacturerFormatException e) {
+				System.out.println("Don't push @");
+			}
+		}
+	}
+	
+	public void setAircraftCost(Scanner input) {
+		System.out.print("Aircraft Cost:");
+		String Cost = input.next();
+		this.setCost(Cost);
+	}
+	
+	public String getKindString() {
+		String Skind = "none";
+		switch(this.kind) {
+		case Airliner:
+			Skind = "Airliner";
+			break;
+		case Jet:
+			Skind = "Jet";
+			break;
+		case Helicopter:
+			Skind = "Helicopter";
+			break;
+		case UAV:
+			Skind = "UAV";
+			break;
+		default:	
+		}
+		return Skind;
+	}
 }
