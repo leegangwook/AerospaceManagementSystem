@@ -4,8 +4,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.*;
 
-public class AircraftAdder extends JFrame {
-	public AircraftAdder() {
+public class AircraftAdder extends JPanel {
+	
+	WindowFrame frame;
+	
+	public AircraftAdder(WindowFrame frame) {
+		this.frame = frame;
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -37,11 +42,8 @@ public class AircraftAdder extends JFrame {
 		panel.add(new JButton("cancel"));
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
-		
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		this.setContentPane(panel);
+	
+		this.add(panel);
 		this.setVisible(true);
 	}
 }

@@ -10,9 +10,15 @@ public interface AircraftInput {
 	
 	public void setName(String name);
 	
+	public String getType();
+	
 	public void setType(String type);
 	
+	public String getManufacturer();
+	
 	public void setManufacturer(String manufacturer) throws ManufacturerFormatException;
+	
+	public String getCost();
 	
 	public void setCost(String cost);
 	

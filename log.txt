@@ -1,4 +1,0 @@
-5월 23, 2022 7:29:33 오후 log.EventLogger log
-정보: add a aircraft
-5월 23, 2022 7:30:20 오후 log.EventLogger log
-정보: edit a list of aircraft

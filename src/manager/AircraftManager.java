@@ -1,8 +1,10 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import aircraft.Aircraft;
 import aircraft.AircraftInput;
 import aircraft.AircraftKind;
 import aircraft.AirlinerAircraft;
@@ -130,6 +132,14 @@ public class AircraftManager implements Serializable {
 		for(int i=0; i<aircrafts.size(); i++) {
 			aircrafts.get(i).printInfo();
 		}
+	}
+	
+	public int size() {
+		return aircrafts.size();
+	}
+	
+	public AircraftInput get(int index) {
+		return (Aircraft) aircrafts.get(index);
 	}
 	
 	public void showEditMenu() {

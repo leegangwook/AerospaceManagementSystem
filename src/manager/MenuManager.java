@@ -1,3 +1,4 @@
+package manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class MenuManager {
@@ -19,8 +21,9 @@ public class MenuManager {
 		AircraftManager aircraftManager = getObject("aircraftmanager.ser");
 		if(aircraftManager == null) {
 			aircraftManager = new AircraftManager(input);
-		}	
+		}
 		
+		WindowFrame frame = new WindowFrame(aircraftManager);
 		selectMenu(input, aircraftManager);
 		putObject(aircraftManager, "aircraftmanager.ser");
 	}
