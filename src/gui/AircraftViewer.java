@@ -17,6 +17,37 @@ public class AircraftViewer extends JPanel {
 	
 	AircraftManager aircraftManager;
 	
+	public AircraftManager getAircraftManager() {
+		return aircraftManager;
+	}
+
+	public void setAircraftManager(AircraftManager aircraftManager) {
+		this.aircraftManager = aircraftManager;
+		this.removeAll();
+		
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Name");
+		model.addColumn("Type");
+		model.addColumn("Manufacturer");
+		model.addColumn("Cost");
+
+		
+		for(int i=0; i<aircraftManager.size();i++) {
+			Vector row = new Vector();
+			AircraftInput si = aircraftManager.get(i);
+			row.add(si.getName());
+			row.add(si.getType());
+			row.add(si.getManufacturer());
+			row.add(si.getCost());
+			model.addRow(row);
+		}
+		
+		JTable table = new JTable(model);
+		JScrollPane sp = new JScrollPane(table);
+		
+		this.add(sp);
+	}
+
 	public AircraftViewer(WindowFrame frame, AircraftManager aircraftManager) {
 		this.frame = frame;
 		this.aircraftManager = aircraftManager;

@@ -22,7 +22,7 @@ public class WindowFrame extends JFrame{
 		this.aircraftManager = aircraftManager;
 		
 		this.menuselection = new MenuSelection(this);		
-		this.aircraftadder = new AircraftAdder(this);
+		this.aircraftadder = new AircraftAdder(this, this.aircraftManager);
 		this.aircraftviewer = new AircraftViewer(this, this.aircraftManager);
 		
 	

@@ -2,14 +2,22 @@ package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import listeners.AircraftAddcancelListener;
+import listeners.AircraftAdderListener;
+import manager.AircraftManager;
+
 import javax.swing.*;
 
 public class AircraftAdder extends JPanel {
 	
 	WindowFrame frame;
 	
-	public AircraftAdder(WindowFrame frame) {
+	AircraftManager aircraftManager;
+	
+	public AircraftAdder(WindowFrame frame, AircraftManager aircraftManager) {
 		this.frame = frame;
+		this.aircraftManager = aircraftManager;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -38,8 +46,14 @@ public class AircraftAdder extends JPanel {
 		panel.add(labelCost);
 		panel.add(fieldCost);
 		
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancel"));
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new AircraftAdderListener(fieldName, fieldType, fieldManufacturer, fieldCost, aircraftManager));
+		
+		JButton cancelButton = new JButton("cancel");
+		cancelButton.addActionListener(new AircraftAddcancelListener(frame));
+		
+		panel.add(saveButton);
+		panel.add(cancelButton);
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 	

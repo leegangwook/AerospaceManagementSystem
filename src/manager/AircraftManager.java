@@ -23,6 +23,16 @@ public class AircraftManager implements Serializable {
 		this.input=input;
 	} 
 
+	public void AddAircraft(String Name, String Type, String Manufacture, String Cost) {
+		AircraftInput aircraftInput = new AirlinerAircraft(AircraftKind.Airliner);
+		aircraftInput.getUserInput(input);
+		aircrafts.add(aircraftInput);
+	}
+	
+	public void AddAircraft(AircraftInput aircraftInput) {
+		aircrafts.add(aircraftInput);
+	}
+	
 	public void AddAircraft() {
 		int kind = 0;
 		AircraftInput aircraftInput;
@@ -151,4 +161,5 @@ public class AircraftManager implements Serializable {
 		System.out.println("5. Exit");
 		System.out.print("Select one number between 1-6:");
 	}
+
 }
